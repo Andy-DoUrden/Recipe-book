@@ -33,7 +33,7 @@ npm install
    Create a `.env` file in the root directory with the following content:
 
 ```
-VITE_API_BASE_URL=http://localhost:3000/api
+VITE_API_BASE_URL=http://localhost:3000
 ```
 
 4. Start the development server:
