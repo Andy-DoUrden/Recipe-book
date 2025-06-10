@@ -1,8 +1,9 @@
 import React from 'react';
+import type { Recipe } from '../../api/recipes';
 import { SidebarWrapper, SidebarTitle, SidebarItem } from './Sidebar.styled';
 
 interface Props {
-  items: any[];
+  items: Recipe[];
   onItemClick: (id: string) => void;
 }
 

@@ -1,93 +1,79 @@
-# 🍽️ Recipe App
+# Recipe Book
 
-A full-stack recipe browsing app built with:
+A modern web application for browsing and discovering recipes. Built with React, TypeScript, and styled-components.
 
-- **Backend:** Node.js + Express + TypeScript
-- **Frontend:** React + Vite + TypeScript + styled-components
-- **API:** [TheMealDB](https://www.themealdb.com/api.php)
+## Features
 
----
+- Browse recipes with filtering by ingredient, country, or category
+- View detailed recipe information
+- Responsive design for all devices
+- Type-safe code with TypeScript
 
-## 🧾 Features
+## Prerequisites
 
-### ✅ Backend API
+- Node.js (v16 or higher)
+- npm (v7 or higher)
 
-- `/recipes`: Fetch recipes (with optional filters by ingredient, country, or category)
-- `/recipes/:id`: Fetch detailed information about a specific recipe
+## Setup
 
-### 🖥️ Frontend
+1. Clone the repository:
 
-- **Home Page**:
-  - Displays list of all or filtered recipes
-  - Filter by ingredient, country, or category
-- **Recipe Detail Page**:
-  - Displays image, name, country, instructions, ingredients
-  - Interactive filtering via ingredient, country, and category
+```bash
+git clone <repository-url>
+cd recipe-book
+```
 
----
+2. Install dependencies:
 
-## 📁 Project Structure
+```bash
+npm install
+```
 
-/recipe-app
+3. Create environment file:
+   Create a `.env` file in the root directory with the following content:
 
-- backend # Express.js + TypeScript
-- frontend # React + Vite + styled-components
+```
+VITE_API_BASE_URL=http://localhost:3000/api
+```
 
----
+4. Start the development server:
 
-## ⚙️ Requirements
+```bash
+npm run dev
+```
 
-- Node.js (v18+ recommended)
-- npm or yarn
+The application will be available at `http://localhost:5173`
 
----
+## Available Scripts
 
-## 🚀 Getting Started
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
 
-### 1. Clone the repository
+## Project Structure
 
-- git clone https://github.com/your-username/recipe-app.git
-- cd recipe-app
+```
+src/
+  ├── api/          # API integration
+  ├── components/   # Reusable components
+  ├── pages/        # Page components
+  └── styles/       # Global styles
+```
 
-### 🔧 Backend Setup
+## Code Quality
 
-## Step 1: Install dependencies
+This project uses:
 
-- cd backend
-- npm install
+- TypeScript for type safety
+- ESLint for code linting
+- Prettier for code formatting
+- Styled-components for styling
 
-## Step 2: Create .env file
+## Contributing
 
-PORT=4000
-THEMEALDB_API=https://www.themealdb.com/api/json/v1/1
-
-## Step 3: Start development server
-
-- npm run dev
-- The backend will run at: http://localhost:4000
-
-### 🎨 Frontend Setup
-
-## Step 1: Install dependencies
-
-- cd ../frontend
-- npm install
-
-## Step 2: Create .env file
-
-VITE_API_URL=http://localhost:4000
-
-## Step 3: Start frontend dev server
-
-- npm run dev
-- The frontend will run at: http://localhost:5173
-
-### 🧪 Testing the App
-
-1. Start backend (npm run dev in /backend)
-
-2. Start frontend (npm run dev in /frontend)
-
-3. Open http://localhost:5173 in your browser
-
-4. Browse recipes, filter them, and view detailed information
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request

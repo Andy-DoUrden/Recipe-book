@@ -1,8 +1,9 @@
 import React from 'react';
+import type { Recipe } from '../../api/recipes';
 import { Card, Image, Title } from './RecipeCard.styled';
 
 interface Props {
-  recipe: any;
+  recipe: Recipe;
   onClick: () => void;
 }
 

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { fetchRecipes } from '../../api/recipes';
+import type { Recipe } from '../../api/recipes';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import { PageWrapper, Title, Grid } from './Home.styled';
 
 const Home: React.FC = () => {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 

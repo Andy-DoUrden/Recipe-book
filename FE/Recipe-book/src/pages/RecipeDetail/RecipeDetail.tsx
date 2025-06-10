@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchRecipeById, fetchRecipes } from '../../api/recipes';
+import type { Recipe } from '../../api/recipes';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import {
   Container,
@@ -15,8 +16,8 @@ import {
 
 const RecipeDetail: React.FC = () => {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState<any>(null);
-  const [categoryRecipes, setCategoryRecipes] = useState([]);
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const [categoryRecipes, setCategoryRecipes] = useState<Recipe[]>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,22 +25,24 @@ const RecipeDetail: React.FC = () => {
 
     fetchRecipeById(id).then((res) => {
       const data = res.data.meals?.[0];
-      setRecipe(data);
+      if (data) {
+        setRecipe(data as Recipe);
 
-      if (data?.strCategory) {
-        fetchRecipes({ category: data.strCategory }).then((catRes) => {
-          setCategoryRecipes(catRes.data.meals || []);
-        });
+        if (data.strCategory) {
+          fetchRecipes({ category: data.strCategory }).then((catRes) => {
+            setCategoryRecipes(catRes.data.meals || []);
+          });
+        }
       }
     });
   }, [id]);
 
   if (!recipe) return <div>Loading...</div>;
 
-  const ingredients = [];
+  const ingredients: string[] = [];
   for (let i = 1; i <= 20; i++) {
-    const ing = recipe[`strIngredient${i}`];
-    const measure = recipe[`strMeasure${i}`];
+    const ing = recipe[`strIngredient${i}` as keyof Recipe];
+    const measure = recipe[`strMeasure${i}` as keyof Recipe];
     if (ing) ingredients.push(`${ing} - ${measure}`);
   }
 
