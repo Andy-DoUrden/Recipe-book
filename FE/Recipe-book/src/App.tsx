@@ -3,7 +3,7 @@ import Home from './pages/Home/Home';
 import RecipeDetail from './pages/RecipeDetail/RecipeDetail';
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/recipe/:id" element={<RecipeDetail />} />
